@@ -1,0 +1,512 @@
+[
+    {
+        "name": "Daniel Kim",
+        "id": "CUS-2023-0475",
+        "risk": 0.76,
+        "segment": "High Net Worth",
+        "matched_biases": [
+            "Anchoring",
+            "Loss Aversion"
+        ]
+    },
+    {
+        "name": "Sarah Johnson",
+        "id": "CUS-2023-0476",
+        "risk": 0.82,
+        "segment": "Ultra High Net Worth",
+        "matched_biases": [
+            "Confirmation Bias",
+            "Overconfidence"
+        ]
+    },
+    {
+        "name": "Michael Chen",
+        "id": "CUS-2023-0477",
+        "risk": 0.65,
+        "segment": "Mass Affluent",
+        "matched_biases": [
+            "Recency Bias",
+            "Herd Mentality"
+        ]
+    },
+    {
+        "name": "Emma Wilson",
+        "id": "CUS-2023-0478",
+        "risk": 0.91,
+        "segment": "Ultra High Net Worth",
+        "matched_biases": [
+            "Loss Aversion",
+            "Status Quo Bias"
+        ]
+    },
+    {
+        "name": "James Rodriguez",
+        "id": "CUS-2023-0479",
+        "risk": 0.58,
+        "segment": "Mass Affluent",
+        "matched_biases": [
+            "Anchoring",
+            "Framing Effect"
+        ]
+    },
+    {
+        "name": "Sophia Patel",
+        "id": "CUS-2023-0480",
+        "risk": 0.73,
+        "segment": "High Net Worth",
+        "matched_biases": [
+            "Overconfidence",
+            "Recency Bias"
+        ]
+    },
+    {
+        "name": "William Thompson",
+        "id": "CUS-2023-0481",
+        "risk": 0.88,
+        "segment": "Ultra High Net Worth",
+        "matched_biases": [
+            "Confirmation Bias",
+            "Loss Aversion"
+        ]
+    },
+    {
+        "name": "Olivia Martinez",
+        "id": "CUS-2023-0482",
+        "risk": 0.62,
+        "segment": "Mass Affluent",
+        "matched_biases": [
+            "Herd Mentality",
+            "Anchoring"
+        ]
+    },
+    {
+        "name": "Alexander Lee",
+        "id": "CUS-2023-0483",
+        "risk": 0.79,
+        "segment": "High Net Worth",
+        "matched_biases": [
+            "Status Quo Bias",
+            "Framing Effect"
+        ]
+    },
+    {
+        "name": "Isabella Brown",
+        "id": "CUS-2023-0484",
+        "risk": 0.85,
+        "segment": "High Net Worth",
+        "matched_biases": [
+            "Overconfidence",
+            "Recency Bias"
+        ]
+    },
+    {
+        "name": "Ethan Davis",
+        "id": "CUS-2023-0485",
+        "risk": 0.71,
+        "segment": "Mass Affluent",
+        "matched_biases": [
+            "Loss Aversion",
+            "Confirmation Bias"
+        ]
+    },
+    {
+        "name": "Mia Anderson",
+        "id": "CUS-2023-0486",
+        "risk": 0.93,
+        "segment": "Ultra High Net Worth",
+        "matched_biases": [
+            "Anchoring",
+            "Status Quo Bias"
+        ]
+    },
+    {
+        "name": "Benjamin Taylor",
+        "id": "CUS-2023-0487",
+        "risk": 0.67,
+        "segment": "Mass Affluent",
+        "matched_biases": [
+            "Herd Mentality",
+            "Framing Effect"
+        ]
+    },
+    {
+        "name": "Charlotte White",
+        "id": "CUS-2023-0488",
+        "risk": 0.81,
+        "segment": "High Net Worth",
+        "matched_biases": [
+            "Recency Bias",
+            "Overconfidence"
+        ]
+    },
+    {
+        "name": "Lucas Garcia",
+        "id": "CUS-2023-0489",
+        "risk": 0.75,
+        "segment": "High Net Worth",
+        "matched_biases": [
+            "Confirmation Bias",
+            "Loss Aversion"
+        ]
+    },
+    {
+        "name": "Amelia Robinson",
+        "id": "CUS-2023-0490",
+        "risk": 0.89,
+        "segment": "Ultra High Net Worth",
+        "matched_biases": [
+            "Status Quo Bias",
+            "Anchoring"
+        ]
+    },
+    {
+        "name": "Henry Clark",
+        "id": "CUS-2023-0491",
+        "risk": 0.63,
+        "segment": "Mass Affluent",
+        "matched_biases": [
+            "Framing Effect",
+            "Herd Mentality"
+        ]
+    },
+    {
+        "name": "Evelyn Lewis",
+        "id": "CUS-2023-0492",
+        "risk": 0.77,
+        "segment": "High Net Worth",
+        "matched_biases": [
+            "Overconfidence",
+            "Recency Bias"
+        ]
+    },
+    {
+        "name": "Sebastian Walker",
+        "id": "CUS-2023-0493",
+        "risk": 0.84,
+        "segment": "High Net Worth",
+        "matched_biases": [
+            "Loss Aversion",
+            "Confirmation Bias"
+        ]
+    },
+    {
+        "name": "Victoria Hall",
+        "id": "CUS-2023-0494",
+        "risk": 0.92,
+        "segment": "Ultra High Net Worth",
+        "matched_biases": [
+            "Anchoring",
+            "Status Quo Bias"
+        ]
+    },
+    {
+        "name": "Jack Young",
+        "id": "CUS-2023-0495",
+        "risk": 0.69,
+        "segment": "Mass Affluent",
+        "matched_biases": [
+            "Herd Mentality",
+            "Framing Effect"
+        ]
+    },
+    {
+        "name": "Grace Allen",
+        "id": "CUS-2023-0496",
+        "risk": 0.78,
+        "segment": "High Net Worth",
+        "matched_biases": [
+            "Recency Bias",
+            "Overconfidence"
+        ]
+    },
+    {
+        "name": "Owen King",
+        "id": "CUS-2023-0497",
+        "risk": 0.86,
+        "segment": "High Net Worth",
+        "matched_biases": [
+            "Confirmation Bias",
+            "Loss Aversion"
+        ]
+    },
+    {
+        "name": "Chloe Wright",
+        "id": "CUS-2023-0498",
+        "risk": 0.94,
+        "segment": "Ultra High Net Worth",
+        "matched_biases": [
+            "Status Quo Bias",
+            "Anchoring"
+        ]
+    },
+    {
+        "name": "Gabriel Scott",
+        "id": "CUS-2023-0499",
+        "risk": 0.64,
+        "segment": "Mass Affluent",
+        "matched_biases": [
+            "Framing Effect",
+            "Herd Mentality"
+        ]
+    },
+    {
+        "name": "Lily Green",
+        "id": "CUS-2023-0500",
+        "risk": 0.80,
+        "segment": "High Net Worth",
+        "matched_biases": [
+            "Overconfidence",
+            "Recency Bias"
+        ]
+    },
+    {
+        "name": "Carter Adams",
+        "id": "CUS-2023-0501",
+        "risk": 0.87,
+        "segment": "High Net Worth",
+        "matched_biases": [
+            "Loss Aversion",
+            "Confirmation Bias"
+        ]
+    },
+    {
+        "name": "Zoe Baker",
+        "id": "CUS-2023-0502",
+        "risk": 0.95,
+        "segment": "Ultra High Net Worth",
+        "matched_biases": [
+            "Anchoring",
+            "Status Quo Bias"
+        ]
+    },
+    {
+        "name": "Ryan Nelson",
+        "id": "CUS-2023-0503",
+        "risk": 0.70,
+        "segment": "Mass Affluent",
+        "matched_biases": [
+            "Herd Mentality",
+            "Framing Effect"
+        ]
+    },
+    {
+        "name": "Hannah Carter",
+        "id": "CUS-2023-0504",
+        "risk": 0.83,
+        "segment": "High Net Worth",
+        "matched_biases": [
+            "Recency Bias",
+            "Overconfidence"
+        ]
+    },
+    {
+        "name": "Nathan Mitchell",
+        "id": "CUS-2023-0505",
+        "risk": 0.90,
+        "segment": "Ultra High Net Worth",
+        "matched_biases": [
+            "Confirmation Bias",
+            "Loss Aversion"
+        ]
+    },
+    {
+        "name": "Ava Perez",
+        "id": "CUS-2023-0506",
+        "risk": 0.66,
+        "segment": "Mass Affluent",
+        "matched_biases": [
+            "Status Quo Bias",
+            "Anchoring"
+        ]
+    },
+    {
+        "name": "Isaac Roberts",
+        "id": "CUS-2023-0507",
+        "risk": 0.74,
+        "segment": "High Net Worth",
+        "matched_biases": [
+            "Framing Effect",
+            "Herd Mentality"
+        ]
+    },
+    {
+        "name": "Sofia Turner",
+        "id": "CUS-2023-0508",
+        "risk": 0.96,
+        "segment": "Ultra High Net Worth",
+        "matched_biases": [
+            "Overconfidence",
+            "Recency Bias"
+        ]
+    },
+    {
+        "name": "Dylan Phillips",
+        "id": "CUS-2023-0509",
+        "risk": 0.68,
+        "segment": "Mass Affluent",
+        "matched_biases": [
+            "Loss Aversion",
+            "Confirmation Bias"
+        ]
+    },
+    {
+        "name": "Aria Campbell",
+        "id": "CUS-2023-0510",
+        "risk": 0.82,
+        "segment": "High Net Worth",
+        "matched_biases": [
+            "Anchoring",
+            "Status Quo Bias"
+        ]
+    },
+    {
+        "name": "Caleb Parker",
+        "id": "CUS-2023-0511",
+        "risk": 0.88,
+        "segment": "High Net Worth",
+        "matched_biases": [
+            "Herd Mentality",
+            "Framing Effect"
+        ]
+    },
+    {
+        "name": "Scarlett Evans",
+        "id": "CUS-2023-0512",
+        "risk": 0.97,
+        "segment": "Ultra High Net Worth",
+        "matched_biases": [
+            "Recency Bias",
+            "Overconfidence"
+        ]
+    },
+    {
+        "name": "Luke Edwards",
+        "id": "CUS-2023-0513",
+        "risk": 0.72,
+        "segment": "Mass Affluent",
+        "matched_biases": [
+            "Confirmation Bias",
+            "Loss Aversion"
+        ]
+    },
+    {
+        "name": "Nora Collins",
+        "id": "CUS-2023-0514",
+        "risk": 0.85,
+        "segment": "High Net Worth",
+        "matched_biases": [
+            "Status Quo Bias",
+            "Anchoring"
+        ]
+    },
+    {
+        "name": "Christian Stewart",
+        "id": "CUS-2023-0515",
+        "risk": 0.91,
+        "segment": "High Net Worth",
+        "matched_biases": [
+            "Framing Effect",
+            "Herd Mentality"
+        ]
+    },
+    {
+        "name": "Luna Morris",
+        "id": "CUS-2023-0516",
+        "risk": 0.98,
+        "segment": "Ultra High Net Worth",
+        "matched_biases": [
+            "Overconfidence",
+            "Recency Bias"
+        ]
+    },
+    {
+        "name": "Aaron Reed",
+        "id": "CUS-2023-0517",
+        "risk": 0.61,
+        "segment": "Mass Affluent",
+        "matched_biases": [
+            "Loss Aversion",
+            "Confirmation Bias"
+        ]
+    },
+    {
+        "name": "Ellie Cook",
+        "id": "CUS-2023-0518",
+        "risk": 0.76,
+        "segment": "High Net Worth",
+        "matched_biases": [
+            "Anchoring",
+            "Status Quo Bias"
+        ]
+    },
+    {
+        "name": "Julian Morgan",
+        "id": "CUS-2023-0519",
+        "risk": 0.93,
+        "segment": "High Net Worth",
+        "matched_biases": [
+            "Herd Mentality",
+            "Framing Effect"
+        ]
+    },
+    {
+        "name": "Stella Bell",
+        "id": "CUS-2023-0520",
+        "risk": 0.99,
+        "segment": "Ultra High Net Worth",
+        "matched_biases": [
+            "Recency Bias",
+            "Overconfidence"
+        ]
+    },
+    {
+        "name": "Adrian Murphy",
+        "id": "CUS-2023-0521",
+        "risk": 0.65,
+        "segment": "Mass Affluent",
+        "matched_biases": [
+            "Confirmation Bias",
+            "Loss Aversion"
+        ]
+    },
+    {
+        "name": "Natalie Bailey",
+        "id": "CUS-2023-0522",
+        "risk": 0.81,
+        "segment": "High Net Worth",
+        "matched_biases": [
+            "Status Quo Bias",
+            "Anchoring"
+        ]
+    },
+    {
+        "name": "Jonathan Cooper",
+        "id": "CUS-2023-0523",
+        "risk": 0.94,
+        "segment": "High Net Worth",
+        "matched_biases": [
+            "Framing Effect",
+            "Herd Mentality"
+        ]
+    },
+    {
+        "name": "Aurora Richardson",
+        "id": "CUS-2023-0524",
+        "risk": 1.00,
+        "segment": "Ultra High Net Worth",
+        "matched_biases": [
+            "Overconfidence",
+            "Recency Bias"
+        ]
+    },
+    {
+        "name": "Isaiah Cox",
+        "id": "CUS-2023-0525",
+        "risk": 0.59,
+        "segment": "Mass Affluent",
+        "matched_biases": [
+            "Loss Aversion",
+            "Confirmation Bias"
+        ]
+    }
+]

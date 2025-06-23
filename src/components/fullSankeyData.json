@@ -1,0 +1,723 @@
+[
+    {
+        "segment": "Risk-Tolerant Professionals",
+        "risk": "Medium",
+        "bias": "Overconfidence",
+        "product": "Smart Beta ETF",
+        "segment_count": 190136
+    },
+    {
+        "segment": "Young Starters",
+        "risk": "Low",
+        "bias": "Loss Aversion",
+        "product": "Smart Beta ETF",
+        "segment_count": 61184
+    },
+    {
+        "segment": "Young Starters",
+        "risk": "High",
+        "bias": "Overconfidence",
+        "product": "Smart Beta ETF",
+        "segment_count": 72880
+    },
+    {
+        "segment": "Conservative Families",
+        "risk": "Low",
+        "bias": "Loss Aversion",
+        "product": "Smart Beta ETF",
+        "segment_count": 146616
+    },
+    {
+        "segment": "Risk-Tolerant Professionals",
+        "risk": "High",
+        "bias": "Overconfidence",
+        "product": "Smart Beta ETF",
+        "segment_count": 334568
+    },
+    {
+        "segment": "Young Starters",
+        "risk": "Medium",
+        "bias": "Overconfidence",
+        "product": "Smart Beta ETF",
+        "segment_count": 85976
+    },
+    {
+        "segment": "Impact Seekers",
+        "risk": "Low",
+        "bias": "Anchoring",
+        "product": "Capital Protection ETF",
+        "segment_count": 6936
+    },
+    {
+        "segment": "Impact Seekers",
+        "risk": "Medium",
+        "bias": "Overconfidence",
+        "product": "Smart Beta ETF",
+        "segment_count": 13160
+    },
+    {
+        "segment": "Tech-Savvy Investors",
+        "risk": "Medium",
+        "bias": "Overconfidence",
+        "product": "Smart Beta ETF",
+        "segment_count": 46896
+    },
+    {
+        "segment": "Income-Oriented",
+        "risk": "High",
+        "bias": "Mental Accounting",
+        "product": "Robo Advisor Portfolio",
+        "segment_count": 5080
+    },
+    {
+        "segment": "Wealthy Retirees",
+        "risk": "Medium",
+        "bias": "Loss Aversion",
+        "product": "Smart Beta ETF",
+        "segment_count": 10536
+    },
+    {
+        "segment": "Income-Oriented",
+        "risk": "Medium",
+        "bias": "Anchoring",
+        "product": "Capital Protection ETF",
+        "segment_count": 17096
+    },
+    {
+        "segment": "High Earners Mid-Career",
+        "risk": "Medium",
+        "bias": "Framing",
+        "product": "Dividend Yield ETF",
+        "segment_count": 5032
+    },
+    {
+        "segment": "Young Starters",
+        "risk": "Medium",
+        "bias": "Anchoring",
+        "product": "Capital Protection ETF",
+        "segment_count": 60104
+    },
+    {
+        "segment": "Impact Seekers",
+        "risk": "Medium",
+        "bias": "Mental Accounting",
+        "product": "Robo Advisor Portfolio",
+        "segment_count": 10464
+    },
+    {
+        "segment": "Young Starters",
+        "risk": "Low",
+        "bias": "Anchoring",
+        "product": "Capital Protection ETF",
+        "segment_count": 24208
+    },
+    {
+        "segment": "Young Starters",
+        "risk": "Low",
+        "bias": "Regret Aversion",
+        "product": "Liquid Fund",
+        "segment_count": 7704
+    },
+    {
+        "segment": "Young Starters",
+        "risk": "Medium",
+        "bias": "Loss Aversion",
+        "product": "Smart Beta ETF",
+        "segment_count": 58896
+    },
+    {
+        "segment": "Income-Oriented",
+        "risk": "Medium",
+        "bias": "Mental Accounting",
+        "product": "Robo Advisor Portfolio",
+        "segment_count": 37496
+    },
+    {
+        "segment": "Income-Oriented",
+        "risk": "Medium",
+        "bias": "Overconfidence",
+        "product": "Smart Beta ETF",
+        "segment_count": 12384
+    },
+    {
+        "segment": "High Earners Mid-Career",
+        "risk": "High",
+        "bias": "Overconfidence",
+        "product": "Smart Beta ETF",
+        "segment_count": 14760
+    },
+    {
+        "segment": "High Earners Mid-Career",
+        "risk": "Low",
+        "bias": "Anchoring",
+        "product": "Capital Protection ETF",
+        "segment_count": 4616
+    },
+    {
+        "segment": "Impact Seekers",
+        "risk": "High",
+        "bias": "Anchoring",
+        "product": "Capital Protection ETF",
+        "segment_count": 2416
+    },
+    {
+        "segment": "Young Starters",
+        "risk": "Medium",
+        "bias": "Availability",
+        "product": "ESG Fund",
+        "segment_count": 45328
+    },
+    {
+        "segment": "Wealthy Retirees",
+        "risk": "Low",
+        "bias": "Loss Aversion",
+        "product": "Smart Beta ETF",
+        "segment_count": 11024
+    },
+    {
+        "segment": "Impact Seekers",
+        "risk": "Medium",
+        "bias": "Anchoring",
+        "product": "Capital Protection ETF",
+        "segment_count": 18336
+    },
+    {
+        "segment": "Young Starters",
+        "risk": "Low",
+        "bias": "Mental Accounting",
+        "product": "Robo Advisor Portfolio",
+        "segment_count": 13600
+    },
+    {
+        "segment": "Income-Oriented",
+        "risk": "Low",
+        "bias": "Mental Accounting",
+        "product": "Robo Advisor Portfolio",
+        "segment_count": 14312
+    },
+    {
+        "segment": "Young Starters",
+        "risk": "Medium",
+        "bias": "Regret Aversion",
+        "product": "Liquid Fund",
+        "segment_count": 19256
+    },
+    {
+        "segment": "Young Starters",
+        "risk": "Medium",
+        "bias": "Framing",
+        "product": "Dividend Yield ETF",
+        "segment_count": 26408
+    },
+    {
+        "segment": "High Earners Mid-Career",
+        "risk": "Low",
+        "bias": "Loss Aversion",
+        "product": "Smart Beta ETF",
+        "segment_count": 12200
+    },
+    {
+        "segment": "Income-Oriented",
+        "risk": "Low",
+        "bias": "Overconfidence",
+        "product": "Smart Beta ETF",
+        "segment_count": 1560
+    },
+    {
+        "segment": "Wealthy Retirees",
+        "risk": "Medium",
+        "bias": "Framing",
+        "product": "Dividend Yield ETF",
+        "segment_count": 4456
+    },
+    {
+        "segment": "Tech-Savvy Investors",
+        "risk": "Low",
+        "bias": "Overconfidence",
+        "product": "Smart Beta ETF",
+        "segment_count": 5624
+    },
+    {
+        "segment": "Income-Oriented",
+        "risk": "Low",
+        "bias": "Availability",
+        "product": "ESG Fund",
+        "segment_count": 5032
+    },
+    {
+        "segment": "Wealthy Retirees",
+        "risk": "Medium",
+        "bias": "Anchoring",
+        "product": "Capital Protection ETF",
+        "segment_count": 10520
+    },
+    {
+        "segment": "High Earners Mid-Career",
+        "risk": "Medium",
+        "bias": "Loss Aversion",
+        "product": "Smart Beta ETF",
+        "segment_count": 11808
+    },
+    {
+        "segment": "Young Starters",
+        "risk": "Low",
+        "bias": "Framing",
+        "product": "Dividend Yield ETF",
+        "segment_count": 10344
+    },
+    {
+        "segment": "Young Starters",
+        "risk": "Low",
+        "bias": "Availability",
+        "product": "ESG Fund",
+        "segment_count": 17400
+    },
+    {
+        "segment": "Impact Seekers",
+        "risk": "Low",
+        "bias": "Availability",
+        "product": "ESG Fund",
+        "segment_count": 5296
+    },
+    {
+        "segment": "Young Starters",
+        "risk": "Low",
+        "bias": "Overconfidence",
+        "product": "Smart Beta ETF",
+        "segment_count": 6952
+    },
+    {
+        "segment": "Income-Oriented",
+        "risk": "Medium",
+        "bias": "Loss Aversion",
+        "product": "Smart Beta ETF",
+        "segment_count": 16240
+    },
+    {
+        "segment": "Impact Seekers",
+        "risk": "Low",
+        "bias": "Loss Aversion",
+        "product": "Smart Beta ETF",
+        "segment_count": 8960
+    },
+    {
+        "segment": "High Earners Mid-Career",
+        "risk": "Medium",
+        "bias": "Overconfidence",
+        "product": "Smart Beta ETF",
+        "segment_count": 17080
+    },
+    {
+        "segment": "High Earners Mid-Career",
+        "risk": "Low",
+        "bias": "Availability",
+        "product": "ESG Fund",
+        "segment_count": 3264
+    },
+    {
+        "segment": "Income-Oriented",
+        "risk": "High",
+        "bias": "Availability",
+        "product": "ESG Fund",
+        "segment_count": 1744
+    },
+    {
+        "segment": "Young Starters",
+        "risk": "High",
+        "bias": "Availability",
+        "product": "ESG Fund",
+        "segment_count": 6240
+    },
+    {
+        "segment": "Young Starters",
+        "risk": "Medium",
+        "bias": "Mental Accounting",
+        "product": "Robo Advisor Portfolio",
+        "segment_count": 34672
+    },
+    {
+        "segment": "Wealthy Retirees",
+        "risk": "Medium",
+        "bias": "Availability",
+        "product": "ESG Fund",
+        "segment_count": 8224
+    },
+    {
+        "segment": "Wealthy Retirees",
+        "risk": "High",
+        "bias": "Overconfidence",
+        "product": "Smart Beta ETF",
+        "segment_count": 12768
+    },
+    {
+        "segment": "Impact Seekers",
+        "risk": "Medium",
+        "bias": "Availability",
+        "product": "ESG Fund",
+        "segment_count": 13368
+    },
+    {
+        "segment": "High Earners Mid-Career",
+        "risk": "Medium",
+        "bias": "Regret Aversion",
+        "product": "Liquid Fund",
+        "segment_count": 3776
+    },
+    {
+        "segment": "Impact Seekers",
+        "risk": "Medium",
+        "bias": "Loss Aversion",
+        "product": "Smart Beta ETF",
+        "segment_count": 17024
+    },
+    {
+        "segment": "Wealthy Retirees",
+        "risk": "Medium",
+        "bias": "Overconfidence",
+        "product": "Smart Beta ETF",
+        "segment_count": 14864
+    },
+    {
+        "segment": "Wealthy Retirees",
+        "risk": "Low",
+        "bias": "Anchoring",
+        "product": "Capital Protection ETF",
+        "segment_count": 3840
+    },
+    {
+        "segment": "High Earners Mid-Career",
+        "risk": "High",
+        "bias": "Regret Aversion",
+        "product": "Liquid Fund",
+        "segment_count": 592
+    },
+    {
+        "segment": "Young Starters",
+        "risk": "High",
+        "bias": "Anchoring",
+        "product": "Capital Protection ETF",
+        "segment_count": 8064
+    },
+    {
+        "segment": "Impact Seekers",
+        "risk": "High",
+        "bias": "Loss Aversion",
+        "product": "Smart Beta ETF",
+        "segment_count": 912
+    },
+    {
+        "segment": "Impact Seekers",
+        "risk": "High",
+        "bias": "Availability",
+        "product": "ESG Fund",
+        "segment_count": 1936
+    },
+    {
+        "segment": "Conservative Families",
+        "risk": "Low",
+        "bias": "Overconfidence",
+        "product": "Smart Beta ETF",
+        "segment_count": 4528
+    },
+    {
+        "segment": "Wealthy Retirees",
+        "risk": "Low",
+        "bias": "Mental Accounting",
+        "product": "Robo Advisor Portfolio",
+        "segment_count": 2536
+    },
+    {
+        "segment": "Wealthy Retirees",
+        "risk": "Medium",
+        "bias": "Regret Aversion",
+        "product": "Liquid Fund",
+        "segment_count": 3248
+    },
+    {
+        "segment": "High Earners Mid-Career",
+        "risk": "Medium",
+        "bias": "Anchoring",
+        "product": "Capital Protection ETF",
+        "segment_count": 12120
+    },
+    {
+        "segment": "Income-Oriented",
+        "risk": "High",
+        "bias": "Anchoring",
+        "product": "Capital Protection ETF",
+        "segment_count": 2216
+    },
+    {
+        "segment": "Income-Oriented",
+        "risk": "Low",
+        "bias": "Loss Aversion",
+        "product": "Smart Beta ETF",
+        "segment_count": 8112
+    },
+    {
+        "segment": "Impact Seekers",
+        "risk": "Medium",
+        "bias": "Framing",
+        "product": "Dividend Yield ETF",
+        "segment_count": 7384
+    },
+    {
+        "segment": "Young Starters",
+        "risk": "High",
+        "bias": "Mental Accounting",
+        "product": "Robo Advisor Portfolio",
+        "segment_count": 5048
+    },
+    {
+        "segment": "Young Starters",
+        "risk": "High",
+        "bias": "Regret Aversion",
+        "product": "Liquid Fund",
+        "segment_count": 2496
+    },
+    {
+        "segment": "Income-Oriented",
+        "risk": "High",
+        "bias": "Loss Aversion",
+        "product": "Smart Beta ETF",
+        "segment_count": 808
+    },
+    {
+        "segment": "Wealthy Retirees",
+        "risk": "Low",
+        "bias": "Availability",
+        "product": "ESG Fund",
+        "segment_count": 2824
+    },
+    {
+        "segment": "Wealthy Retirees",
+        "risk": "Low",
+        "bias": "Framing",
+        "product": "Dividend Yield ETF",
+        "segment_count": 1904
+    },
+    {
+        "segment": "High Earners Mid-Career",
+        "risk": "Low",
+        "bias": "Framing",
+        "product": "Dividend Yield ETF",
+        "segment_count": 2160
+    },
+    {
+        "segment": "Impact Seekers",
+        "risk": "High",
+        "bias": "Mental Accounting",
+        "product": "Robo Advisor Portfolio",
+        "segment_count": 1200
+    },
+    {
+        "segment": "High Earners Mid-Career",
+        "risk": "Medium",
+        "bias": "Mental Accounting",
+        "product": "Robo Advisor Portfolio",
+        "segment_count": 7128
+    },
+    {
+        "segment": "High Earners Mid-Career",
+        "risk": "Medium",
+        "bias": "Availability",
+        "product": "ESG Fund",
+        "segment_count": 8760
+    },
+    {
+        "segment": "Income-Oriented",
+        "risk": "Low",
+        "bias": "Anchoring",
+        "product": "Capital Protection ETF",
+        "segment_count": 6328
+    },
+    {
+        "segment": "Wealthy Retirees",
+        "risk": "Medium",
+        "bias": "Mental Accounting",
+        "product": "Robo Advisor Portfolio",
+        "segment_count": 6192
+    },
+    {
+        "segment": "Impact Seekers",
+        "risk": "Low",
+        "bias": "Mental Accounting",
+        "product": "Robo Advisor Portfolio",
+        "segment_count": 3768
+    },
+    {
+        "segment": "Wealthy Retirees",
+        "risk": "High",
+        "bias": "Availability",
+        "product": "ESG Fund",
+        "segment_count": 1144
+    },
+    {
+        "segment": "Impact Seekers",
+        "risk": "Medium",
+        "bias": "Regret Aversion",
+        "product": "Liquid Fund",
+        "segment_count": 5384
+    },
+    {
+        "segment": "Impact Seekers",
+        "risk": "Low",
+        "bias": "Overconfidence",
+        "product": "Smart Beta ETF",
+        "segment_count": 1584
+    },
+    {
+        "segment": "Impact Seekers",
+        "risk": "Low",
+        "bias": "Regret Aversion",
+        "product": "Liquid Fund",
+        "segment_count": 1984
+    },
+    {
+        "segment": "Income-Oriented",
+        "risk": "Medium",
+        "bias": "Availability",
+        "product": "ESG Fund",
+        "segment_count": 12304
+    },
+    {
+        "segment": "High Earners Mid-Career",
+        "risk": "High",
+        "bias": "Anchoring",
+        "product": "Capital Protection ETF",
+        "segment_count": 1920
+    },
+    {
+        "segment": "Impact Seekers",
+        "risk": "Low",
+        "bias": "Framing",
+        "product": "Dividend Yield ETF",
+        "segment_count": 2928
+    },
+    {
+        "segment": "High Earners Mid-Career",
+        "risk": "High",
+        "bias": "Loss Aversion",
+        "product": "Smart Beta ETF",
+        "segment_count": 432
+    },
+    {
+        "segment": "High Earners Mid-Career",
+        "risk": "High",
+        "bias": "Mental Accounting",
+        "product": "Robo Advisor Portfolio",
+        "segment_count": 1008
+    },
+    {
+        "segment": "Impact Seekers",
+        "risk": "High",
+        "bias": "Framing",
+        "product": "Dividend Yield ETF",
+        "segment_count": 1096
+    },
+    {
+        "segment": "Young Starters",
+        "risk": "High",
+        "bias": "Framing",
+        "product": "Dividend Yield ETF",
+        "segment_count": 3728
+    },
+    {
+        "segment": "Wealthy Retirees",
+        "risk": "High",
+        "bias": "Loss Aversion",
+        "product": "Smart Beta ETF",
+        "segment_count": 472
+    },
+    {
+        "segment": "Young Starters",
+        "risk": "High",
+        "bias": "Loss Aversion",
+        "product": "Smart Beta ETF",
+        "segment_count": 2776
+    },
+    {
+        "segment": "Wealthy Retirees",
+        "risk": "High",
+        "bias": "Regret Aversion",
+        "product": "Liquid Fund",
+        "segment_count": 496
+    },
+    {
+        "segment": "Wealthy Retirees",
+        "risk": "High",
+        "bias": "Mental Accounting",
+        "product": "Robo Advisor Portfolio",
+        "segment_count": 784
+    },
+    {
+        "segment": "High Earners Mid-Career",
+        "risk": "Low",
+        "bias": "Regret Aversion",
+        "product": "Liquid Fund",
+        "segment_count": 1376
+    },
+    {
+        "segment": "High Earners Mid-Career",
+        "risk": "Low",
+        "bias": "Mental Accounting",
+        "product": "Robo Advisor Portfolio",
+        "segment_count": 2576
+    },
+    {
+        "segment": "Wealthy Retirees",
+        "risk": "High",
+        "bias": "Framing",
+        "product": "Dividend Yield ETF",
+        "segment_count": 560
+    },
+    {
+        "segment": "Wealthy Retirees",
+        "risk": "High",
+        "bias": "Anchoring",
+        "product": "Capital Protection ETF",
+        "segment_count": 1536
+    },
+    {
+        "segment": "Wealthy Retirees",
+        "risk": "Low",
+        "bias": "Overconfidence",
+        "product": "Smart Beta ETF",
+        "segment_count": 1304
+    },
+    {
+        "segment": "High Earners Mid-Career",
+        "risk": "High",
+        "bias": "Availability",
+        "product": "ESG Fund",
+        "segment_count": 1008
+    },
+    {
+        "segment": "High Earners Mid-Career",
+        "risk": "High",
+        "bias": "Framing",
+        "product": "Dividend Yield ETF",
+        "segment_count": 576
+    },
+    {
+        "segment": "Wealthy Retirees",
+        "risk": "Low",
+        "bias": "Regret Aversion",
+        "product": "Liquid Fund",
+        "segment_count": 1232
+    },
+    {
+        "segment": "High Earners Mid-Career",
+        "risk": "Low",
+        "bias": "Overconfidence",
+        "product": "Smart Beta ETF",
+        "segment_count": 1304
+    },
+    {
+        "segment": "Impact Seekers",
+        "risk": "High",
+        "bias": "Regret Aversion",
+        "product": "Liquid Fund",
+        "segment_count": 856
+    }
+]

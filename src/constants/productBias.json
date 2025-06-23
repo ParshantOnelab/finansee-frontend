@@ -1,0 +1,38 @@
+{
+    "Capital Protection ETF": [
+        "Loss Aversion",
+        "Anchoring",
+        "Regret Aversion"
+    ],
+    "Nifty50 Index Fund": [
+        "Status Quo Bias",
+        "Familiarity Bias"
+    ],
+    "Smart Beta ETF": [
+        "Overconfidence",
+        "Confirmation Bias",
+        "Availability Bias"
+    ],
+    "Sectoral/Thematic Fund": [
+        "Overconfidence",
+        "Herd Bias",
+        "Self Attribution Bias"
+    ],
+    "Quant-based Fund": [
+        "Anchoring",
+        "Framing Bias",
+        "Mental Accounting"
+    ],
+    "Dividend Yield ETF": [
+        "Loss Aversion",
+        "Familiarity Bias"
+    ],
+    "International ETF": [
+        "Home Bias",
+        "Status Quo Bias"
+    ],
+    "Liquid Fund": [
+        "Loss Aversion",
+        "Regret Aversion"
+    ]
+}

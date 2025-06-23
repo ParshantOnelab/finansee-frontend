@@ -1,0 +1,6 @@
+{
+    "Relationship Manager":["product_name","matched_biases","reason"],
+    "Head of Advisory":["product_name","matched_biases","reason"],
+    "Portfolio Advisory":["product_name","matched_biases","risk_level","knowledge_min"],
+    "Compliance Officer":["product_name","matched_biases","risk_level","knowledge_min","reason"]
+}

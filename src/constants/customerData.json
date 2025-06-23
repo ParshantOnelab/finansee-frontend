@@ -1,0 +1,55 @@
+[
+    {
+        "product_id": "P001",
+        "product_name": "Capital Protection ETF",
+        "match_score": 0.857,
+        "product_interest": true,
+        "matched_biases": [
+            "Anchoring",
+            "Loss Aversion"
+        ],
+        "reason": "Bias: Anchoring, Loss Aversion | Risk: Low | Knowledge Min: 30"
+    },
+    {
+        "product_id": "P008",
+        "product_name": "Liquid Fund",
+        "match_score": 0.807,
+        "product_interest": false,
+        "matched_biases": [
+            "Loss Aversion"
+        ],
+        "reason": "Bias: Loss Aversion | Risk: Low | Knowledge Min: 20"
+    },
+    {
+        "product_id": "P006",
+        "product_name": "Dividend Yield ETF",
+        "match_score": 0.717,
+        "product_interest": true,
+        "matched_biases": [
+            "Loss Aversion"
+        ],
+        "reason": "Bias: Loss Aversion | Risk: Medium | Knowledge Min: 45"
+    },
+    {
+        "product_id": "P012",
+        "product_name": "Smart Beta ETF",
+        "match_score": 0.892,
+        "product_interest": false,
+        "matched_biases": [
+            "Overconfidence",
+            "Recency Bias"
+        ],
+        "reason": "Bias: Overconfidence, Recency Bias | Risk: High | Knowledge Min: 60"
+    },
+    {
+        "product_id": "P015",
+        "product_name": "Thematic Smallcase",
+        "match_score": 0.765,
+        "product_interest": false,
+        "matched_biases": [
+            "Confirmation Bias",
+            "Herd Mentality"
+        ],
+        "reason": "Bias: Confirmation Bias, Herd Mentality | Risk: Medium | Knowledge Min: 40"
+    }
+]
