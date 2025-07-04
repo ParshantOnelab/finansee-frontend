@@ -1,23 +1,27 @@
 steps:
-  # Step 1: Build the React app
+  # Step 1: Install dependencies
   - name: 'node:18'
-    entrypoint: npm
-    args: ['install']
-  - name: 'node:18'
-    entrypoint: npm
-    args: ['run', 'build']
+    args: ['npm', 'install']
 
-  # Step 2: Build the Docker image
+  # Step 2: Build the React (Vite) app
+  - name: 'node:18'
+    args: ['npm', 'run', 'build']
+
+  # Step 3: Build the Docker image (passing env var as build-arg if needed)
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/$PROJECT_ID/finansee-frontend', '.']
+    args: [
+      'build',
+      '-t', 'gcr.io/$PROJECT_ID/finansee-frontend',
+      '--build-arg', 'VITE_SERVER_URL=${_VITE_SERVER_URL}',
+      '.'
+    ]
 
-  # Step 3: Push the Docker image to Container Registry
+  # Step 4: Push Docker image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/$PROJECT_ID/finansee-frontend']
 
-  # Step 4: Deploy to Cloud Run
+  # Step 5: Deploy to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    entrypoint: gcloud
     args:
       - 'run'
       - 'deploy'
