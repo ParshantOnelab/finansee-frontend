@@ -1,29 +1,21 @@
-# Use official Node image (LTS version)
-FROM node:18-slim
+# Base image
+FROM node:18-alpine as build
 
-# Create app directory
-WORKDIR /usr/src/app
+# Set working directory
+WORKDIR /app
 
-# Copy package.json and lock file separately for caching
-COPY package*.json ./
-
-# Install dependencies
-RUN npm install
-
-# Copy rest of the app
+# Copy files
 COPY . .
 
-# Build the Vite app
-RUN npm run build
+# Install dependencies and build
+RUN npm install && npm run build
 
-# Install a lightweight static file server
-RUN npm install -g serve
+# Serve the app with a lightweight static server
+FROM nginx:alpine
+COPY --from=build /app/dist /usr/share/nginx/html
 
-# Cloud Run assigns a port to the container, passed via $PORT
-ENV PORT=8080
+# Expose port
+EXPOSE 80
 
-# Expose that port (not required by Cloud Run but good for local)
-EXPOSE 8080
-
-# Use serve to serve the static build
-CMD ["serve", "-s", "dist", "-l", "8080"]
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]
