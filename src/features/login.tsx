@@ -44,7 +44,7 @@ function Login() {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">                              mmmmmmmm
+        <div className="min-h-screen flex items-center justify-center bg-gray-100">
             <div className="w-full max-w-sm p-8 bg-white rounded-lg shadow-md">
                 <div className="mb-6 text-center">
                     <h1 className="text-3xl font-semibold text-gray-800">Login</h1>
