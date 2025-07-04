@@ -38,3 +38,6 @@ steps:
 
 images:
   - 'gcr.io/$PROJECT_ID/finansee-frontend'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
