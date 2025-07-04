@@ -1,24 +1,29 @@
-# --- Frontend Stage: Build React App ---
-FROM node:20 AS builder
+# Use official Node image (LTS version)
+FROM node:18-slim
 
-WORKDIR /app
+# Create app directory
+WORKDIR /usr/src/app
 
+# Copy package.json and lock file separately for caching
 COPY package*.json ./
+
+# Install dependencies
 RUN npm install
 
+# Copy rest of the app
 COPY . .
+
+# Build the Vite app
 RUN npm run build
 
-# Stage 2: Serve using `serve`
-FROM node:20
-
+# Install a lightweight static file server
 RUN npm install -g serve
 
-WORKDIR /app
-
-COPY --from=builder /app/dist ./dist
-
-# Use $PORT for Google Cloud compatibility
+# Cloud Run assigns a port to the container, passed via $PORT
 ENV PORT=8080
 
+# Expose that port (not required by Cloud Run but good for local)
+EXPOSE 8080
+
+# Use serve to serve the static build
 CMD ["serve", "-s", "dist", "-l", "8080"]

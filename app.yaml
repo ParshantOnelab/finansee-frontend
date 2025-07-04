@@ -11,7 +11,7 @@
 #     upload: dist/index.html
 
 runtime: python39
-
+service:finansee-frontend
 handlers:
   - url: /assets
     static_dir: assets
