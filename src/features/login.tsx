@@ -64,7 +64,7 @@ function Login() {
                             placeholder="user@example.com"
                             value={formData.email}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm text-black"
                         />
                     </div>
 
@@ -80,7 +80,7 @@ function Login() {
                             placeholder="••••••••"
                             value={formData.password}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm text-black"
                         />
                     </div>
 
