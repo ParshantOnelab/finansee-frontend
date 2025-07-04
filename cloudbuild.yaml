@@ -9,7 +9,7 @@ steps:
     entrypoint: 'npm'
     args: ['run', 'build']
     env:
-      - 'VITE_SERVER_URL=${_VITE_SERVER_URL}'  # if needed during build
+      - 'VITE_SERVER_URL=${_VITE_SERVER_URL}'
 
   # Step 3: Build Docker image with env build arg
   - name: 'gcr.io/cloud-builders/docker'
@@ -25,8 +25,9 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/$PROJECT_ID/finansee-frontend']
 
-  # Step 5: Deploy to Cloud Run
+  # ✅ Step 5: Deploy to Cloud Run (fixed entrypoint)
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
     args:
       [
         'run', 'deploy', 'finansee-frontend',
