@@ -10,8 +10,9 @@ import { ThemeProvider } from "../components/theme-provider";
 import ProtectedRoute from "../app/protectedRoutes";
 import Login from "../features/login";
 
-import { store } from "../store/store"; // Ensure store is initialized
+import { store,persistor } from "../store/store"; // Ensure store is initialized
 import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
 
 const AppContent = () => {
   const location = useLocation();
@@ -97,9 +98,11 @@ function AppRoutes() {
   return (
     <ThemeProvider>
       <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter>
           <AppContent />
         </BrowserRouter>
+        </PersistGate>
       </Provider>
     </ThemeProvider>
   )

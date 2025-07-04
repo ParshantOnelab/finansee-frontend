@@ -1,6 +1,8 @@
-import  { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import download from '../assets/download.svg'
 import roles from "../constants/roles.json"
+
+type RoleKey = 'Relationship Manager' | 'Head of Advisory' | 'Portfolio Advisory' | 'Compliance Officer';
 
 import {
   useReactTable,
@@ -23,18 +25,18 @@ type CustomerData = {
   product_interest: boolean;
   matched_biases: string[];
   reason: string;
+  risk_level: string;
+  knowledge_min: number;
 }
 
 function CustomerReport() {
 
-  const segment = 'High Net Worth'
   const { uid } = useParams<{ uid: string }>()
 
-  // userData is an array, so get the first user object if available
-  const userData = useSelector((state: RootState) => state.user);
-  const role = userData?.role;
+  const storedRole = useSelector((state: RootState) => state.userRole)
+  
+  const roleString : string = storedRole;
 
-  // features is not used, so we remove it to fix the lint error
   const [customerData, setCustomerData] = useState<CustomerData[]>([]);
 
   const { data: apiCustomerData, isFetching, isError, isSuccess } = useGetCustomerByIdQuery(uid || '', {
@@ -50,12 +52,10 @@ function CustomerReport() {
 
   const columnHelper = createColumnHelper<CustomerData>()
 
-  // Fix: Add type safety for role lookup
-  type RoleKey = keyof typeof roles;
-  const roleColumns =
-    role && Object.prototype.hasOwnProperty.call(roles, role)
-      ? (roles[role as RoleKey] as string[])
-      : [];
+  // Get columns for the current role, fallback to empty array if not found
+  const roleColumns = roleString && Object.prototype.hasOwnProperty.call(roles, roleString)
+    ? (roles[roleString as RoleKey] as string[])
+    : [];
 
   const allColumns = [
     {
@@ -88,9 +88,23 @@ function CustomerReport() {
       }),
     },
     {
-      id: 'product_interest',
-      accessor: columnHelper.accessor('product_interest', {
-        header: 'Product Interest',
+      id: 'risk_level',
+      accessor: columnHelper.accessor('risk_level', {
+        header: 'Risk Level',
+        cell: info => (
+          <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${info.getValue()
+            ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300'
+            : 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
+            }`}>
+            {info.getValue() ? 'Yes' : 'No'}
+          </div>
+        ),
+      }),
+    },
+    {
+      id: 'knowledge_min',
+      accessor: columnHelper.accessor('knowledge_min', {
+        header: 'Knowledge min',
         cell: info => (
           <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${info.getValue()
             ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300'
@@ -172,7 +186,7 @@ function CustomerReport() {
               </div>
               <div className='flex items-center gap-2'>
                 <p className='text-sm text-slate-500 dark:text-gray-400 font-normal'>Segment :</p>
-                <span className='font-bold px-2 py-1.5 text-[#5C00D3] bg-[#5C00D31A] dark:bg-[#5C00D333] rounded-lg text-sm whitespace-nowrap'>{segment}</span>
+                <span className='font-bold px-2 py-1.5 text-[#5C00D3] bg-[#5C00D31A] dark:bg-[#5C00D333] rounded-lg text-sm whitespace-nowrap'>{apiCustomerData?.results[0]?.customer_segment}</span>
               </div>
               <div className='flex items-center gap-2'>
                 <p className='text-sm text-slate-500 dark:text-gray-400 font-normal'>Risk Profile :</p>

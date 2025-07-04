@@ -1,17 +1,47 @@
-import { configureStore } from '@reduxjs/toolkit'
-import { api } from './api'
-import { customersReducer,userReducer } from './reducers'
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { api } from "./api";
+import { customersReducer, userRoleReducer } from "./reducers";
+import { persistReducer, persistStore } from "redux-persist";
+import storage from "redux-persist/lib/storage"; // defaults to localStorage
+import {
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
 
+// Step 1: Combine all reducers
+const rootReducer = combineReducers({
+  [api.reducerPath]: api.reducer,
+  [customersReducer.name]: customersReducer.reducer,
+  [userRoleReducer.name]: userRoleReducer.reducer,
+});
+
+// Step 2: Set up persist config
+const persistConfig = {
+  key: "root",
+  storage,
+  whitelist: [customersReducer.name, userRoleReducer.name], // only persist these
+};
+
+// Step 3: Wrap rootReducer with persistReducer
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+// Step 4: Configure store
 export const store = configureStore({
-  reducer: {
-    [api.reducerPath]:api.reducer,
-    [customersReducer.name]: customersReducer.reducer,
-    [userReducer.name]: userReducer.reducer,
-  },
+  reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(api.middleware),
-})
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }).concat(api.middleware),
+});
 
-export type RootState = ReturnType<typeof store.getState>
+// Step 5: Export persistor
+export const persistor = persistStore(store);
 
-export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useTransition } from 'react'
 import userCard from '../assets/user_card.svg'
 import download from '../assets/download.svg'
@@ -9,7 +8,8 @@ import HorizontalBars, { GraphData } from '../components/horizontal-graph'
 import { topBiases, topProducts } from '../constants/graphData'
 import { useDispatch } from 'react-redux'
 import { setCustomersData } from '../store/reducers'
-import SankeyChart from '../components/SankeyChart'
+import React, { Suspense } from 'react'
+const SankeyChart = React.lazy(() => import('../components/SankeyChart'))
 
 interface Customer {
     customer_id: string;
@@ -209,7 +209,7 @@ function Dashboard() {
                                                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4'>
                                                                 {/* User Info */}
                                                                 <div className='flex items-center gap-4 cursor-pointer' onClick={() => {
-                                                                    console.log("clicked")
+
                                                                     navigate(`/dashboard/${user.customer_id}`)
                                                                 }}>
                                                                     <div className='flex flex-col'>
@@ -272,12 +272,11 @@ function Dashboard() {
                         <div className="flex items-center justify-center h-32">
                             <p className="text-red-500 dark:text-red-400">
                                 Failed to load insights: {
-                                    insightError
-                                        ? typeof insightError === 'object' && 'message' in insightError
-                                            ? (insightError as { message?: string }).message
-                                            : typeof insightError === 'object' && 'status' in insightError
-                                                ? `Status: ${(insightError as { status?: number }).status}`
-                                                : 'Unknown error'
+                                    typeof insightError === 'object' && insightError !== null
+                                        ? // Try to get a message property if it exists, else fallback to stringified error
+                                        ('message' in insightError
+                                            ? (insightError as any).message
+                                            : JSON.stringify(insightError))
                                         : 'Unknown error'
                                 }
                             </p>
@@ -300,8 +299,10 @@ function Dashboard() {
 
                 </div>
 
-                <div className='flex justify-center content-center'>
-                    <SankeyChart />
+                <div className='flex justify-center content-center dark:bg-gray-400'>
+                    <Suspense fallback={<div className="text-gray-400 mt-4">Loading Sankey Chart...</div>}>
+                        <SankeyChart />
+                    </Suspense>
                 </div>
             </div>
             {/* <Outlet /> */}

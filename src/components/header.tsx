@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import logo from '../assets/logo.svg'
+import logo from '../assets/finanseeLogo.png'
 import { useNavigation } from '../hooks/useNavigation'
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from './theme-provider';

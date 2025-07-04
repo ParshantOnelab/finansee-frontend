@@ -1,5 +1,3 @@
-
-
 function Analytics() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '80vh' }}>
@@ -10,3 +8,5 @@ function Analytics() {
 }
 
 export default Analytics;
+
+

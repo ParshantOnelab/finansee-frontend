@@ -1,0 +1,25 @@
+# runtime: nodejs20
+
+# handlers:
+#   - url: /(.*\.(js|css|ico|png|jpg|svg|json|txt|html))$
+#     static_files: dist/\1
+#     upload: dist/.*\.(js|css|ico|png|jpg|svg|json|txt|html)
+
+#   # Catch-all handler to serve index.html for client-side routing
+#   - url: /.*
+#     static_files: dist/index.html
+#     upload: dist/index.html
+
+runtime: python39
+
+handlers:
+  - url: /assets
+    static_dir: assets
+
+  - url: /(.*\.(js|css|ico|png|jpg|svg|json|txt|html))$
+    static_files: \1
+    upload: (.*\.(js|css|ico|png|jpg|svg|json|txt|html))
+
+  - url: /.*
+    static_files: index.html
+    upload: index.html

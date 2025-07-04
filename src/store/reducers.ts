@@ -5,11 +5,7 @@ interface Customer {
     match_score: number;
 }
 
-interface User {
-    email: string;
-    role: string;
-    id: string
-}
+
 
 export const customersReducer = createSlice({
     name: "data",
@@ -20,20 +16,20 @@ export const customersReducer = createSlice({
         }
     }
 })
-export const userReducer = createSlice({
-    name: "user",
-    initialState: { email: "", role: "", id: "" } as User,
+export const userRoleReducer = createSlice({
+    name: "userRole",
+    initialState: "",
     reducers: {
-        setUserData: (_state, action) => {
+        setUserRole: (_state, action) => {
             return action.payload;
         }
     }
 })
 
 export const { setCustomersData } = customersReducer.actions;
-export const { setUserData } = userReducer.actions;
+export const { setUserRole } = userRoleReducer.actions;
 const rootReducer = combineReducers({
     customer: customersReducer.reducer,
-    user: userReducer.reducer
+    user: userRoleReducer.reducer
 })
 export default rootReducer;

@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 import { useLoginMutation } from '../store/api'
 import { useNavigate } from 'react-router-dom'
-import {setUserData} from "../store/reducers"
+import {setUserRole} from "../store/reducers"
 import { useDispatch } from 'react-redux'
+// import type { RootState } from '../store/store'
 
 function Login() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-
+    // const storedRole = useSelector((state:RootState)=>state.userRole)
+    // console.log(storedRole,'StoredRole')
     // const userdata = useSelector((state: RootState)=>state.user)
     const [login] = useLoginMutation()
     const [formData, setFormData] = useState({
@@ -33,7 +35,7 @@ function Login() {
             // console.log(data,'data')
             alert('Login successful! Welcome to the dashboard.')
             navigate('/dashboard')
-            dispatch(setUserData(data?.user))
+            dispatch(setUserRole(data?.user?.role))
             // console.log(document.cookie, 'cookie')
         } catch (error: any) {
             alert(error?.data?.message || 'Login failed. Please try again.')
@@ -42,7 +44,7 @@ function Login() {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <div className="min-h-screen flex items-center justify-center bg-gray-100">                              mmmmmmmm
             <div className="w-full max-w-sm p-8 bg-white rounded-lg shadow-md">
                 <div className="mb-6 text-center">
                     <h1 className="text-3xl font-semibold text-gray-800">Login</h1>
@@ -82,7 +84,7 @@ function Login() {
                         />
                     </div>
 
-                    <div className="flex items-center justify-between text-sm">
+                    {/* <div className="flex items-center justify-between text-sm">
                         <label className="flex items-center gap-2 text-gray-600">
                             <input
                                 type="checkbox"
@@ -94,7 +96,7 @@ function Login() {
                         <a href="#" className="text-indigo-600 hover:underline">
                             Forgot password?
                         </a>
-                    </div>
+                    </div> */}
 
                     <button
                         type="submit"
