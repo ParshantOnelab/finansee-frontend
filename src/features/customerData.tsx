@@ -1,8 +1,5 @@
 import { useState, useMemo, useEffect } from 'react'
 import download from '../assets/download.svg'
-import roles from "../constants/roles.json"
-
-type RoleKey = 'Relationship Manager' | 'Head of Advisory' | 'Portfolio Advisory' | 'Compliance Officer';
 
 import {
   useReactTable,
@@ -32,7 +29,7 @@ type CustomerData = {
 function CustomerReport() {
 
   const { uid } = useParams<{ uid: string }>()
-  const { data: existedRoles, isLoading } = useGetRolesQuery({})
+  const { data: existedRoles } = useGetRolesQuery({})
   const storedRole = useSelector((state: RootState) => state.userRole)
 
   console.log(storedRole, "Stored Role from Redux", existedRoles, "Existed Roles from API");
@@ -56,7 +53,7 @@ function CustomerReport() {
 
   const columns = useMemo(() => {
     const roleColumns =
-      existedRoles?.roles?.find((role: any) => role.role_name === roleString)?.features || [];
+      existedRoles?.roles?.find((role: {role_name:string,features:string[]}) => role.role_name === roleString)?.features || [];
       console.log(roleColumns, "Role Columns based on roleString", roleString);
     const allColumns = [
       {
