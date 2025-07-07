@@ -30,6 +30,13 @@ export const api = createApi({
                 credentials: 'include',
             }),
         }),
+        getRoles: builder.query({
+            query: () => ({
+                url: '/admin/get-roles',
+                method: 'GET',
+                credentials: 'include',
+            })
+        }),
         getCustomerById: builder.query({
             query: (uid: string) => ({
                 url:`/recommend?customer_id=${uid}`,
@@ -61,4 +68,4 @@ export const api = createApi({
     }),
 })
 
-export const { useGetCustomersQuery, useGetCustomerByIdQuery,useGetTopInsightsQuery, useAuthenticateQuery,useLoginMutation,useLogoutMutation,useSankeyChatDataQuery } = api;
+export const { useGetCustomersQuery, useGetCustomerByIdQuery,useGetTopInsightsQuery, useAuthenticateQuery,useLoginMutation,useLogoutMutation,useSankeyChatDataQuery,useGetRolesQuery } = api;

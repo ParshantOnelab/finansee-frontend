@@ -12,7 +12,7 @@ import {
 } from '@tanstack/react-table'
 
 import { useNavigate, useParams } from 'react-router'
-import { useGetCustomerByIdQuery } from '../store/api'
+import { useGetCustomerByIdQuery, useGetRolesQuery } from '../store/api'
 import HeatMapChart from '../components/heat-map'
 import Button from '@mui/material/Button'
 import { useSelector } from 'react-redux'
@@ -32,10 +32,12 @@ type CustomerData = {
 function CustomerReport() {
 
   const { uid } = useParams<{ uid: string }>()
-
+  const { data: existedRoles, isLoading } = useGetRolesQuery({})
   const storedRole = useSelector((state: RootState) => state.userRole)
-  
-  const roleString : string = storedRole;
+
+  console.log(storedRole, "Stored Role from Redux", existedRoles, "Existed Roles from API");
+
+  const roleString: string = storedRole;
 
   const [customerData, setCustomerData] = useState<CustomerData[]>([]);
 
@@ -52,109 +54,125 @@ function CustomerReport() {
 
   const columnHelper = createColumnHelper<CustomerData>()
 
-  // Get columns for the current role, fallback to empty array if not found
-  const roleColumns = roleString && Object.prototype.hasOwnProperty.call(roles, roleString)
-    ? (roles[roleString as RoleKey] as string[])
-    : [];
-
-  const allColumns = [
-    {
-      id: 'product_name',
-      accessor: columnHelper.accessor('product_name', {
-        header: 'Product',
-        cell: info => (
-          <div>
-            <p className='font-bold'>{info.getValue()}</p>
-            <p className="text-gray-500 text-sm">{info.row.original.product_id}</p>
-          </div>
-        ),
-      }),
-    },
-    {
-      id: 'match_score',
-      accessor: columnHelper.accessor('match_score', {
-        header: 'Match Score',
-        cell: info => {
-          const score = info.getValue() * 100;
-          const colorClass = score >= 80 ? 'text-green-600 dark:text-green-400 bg-[#4696601A] dark:bg-[#46966033]' :
-            score >= 60 ? 'text-yellow-600 dark:text-yellow-400 bg-[#C88A001A] dark:bg-[#C88A0033]' :
-              'text-red-600 dark:text-red-400 bg-[#C88A001A] dark:bg-[#C88A0033]';
-          return (
-            <div className='flex'>
-              <p className={`font-medium ${colorClass} py-1.5 px-2 rounded-xl`}>{score.toFixed(1)}%</p>
-            </div>
-          );
-        },
-      }),
-    },
-    {
-      id: 'risk_level',
-      accessor: columnHelper.accessor('risk_level', {
-        header: 'Risk Level',
-        cell: info => (
-          <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${info.getValue()
-            ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300'
-            : 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
-            }`}>
-            {info.getValue() ? 'Yes' : 'No'}
-          </div>
-        ),
-      }),
-    },
-    {
-      id: 'knowledge_min',
-      accessor: columnHelper.accessor('knowledge_min', {
-        header: 'Knowledge min',
-        cell: info => (
-          <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${info.getValue()
-            ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300'
-            : 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
-            }`}>
-            {info.getValue() ? 'Yes' : 'No'}
-          </div>
-        ),
-      }),
-    },
-    {
-      id: 'matched_biases',
-      accessor: columnHelper.accessor('matched_biases', {
-        header: 'Bias Method',
-        cell: info => (
-          <div className="flex flex-wrap gap-1">
-            {info.getValue().map((bias, index) => (
-              <span
-                key={index}
-                className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300"
-              >
-                {bias}
-              </span>
-            ))}
-          </div>
-        ),
-      }),
-    },
-    {
-      id: 'reason',
-      accessor: columnHelper.accessor('reason', {
-        header: 'Suitable Reason',
-        cell: info => (
-          <div className="text-sm text-gray-600 dark:text-gray-400 max-w-md">
-            {info.getValue()}
-          </div>
-        ),
-      }),
-    },
-  ];
-
-  // Always show "Product", then filter others by role
   const columns = useMemo(() => {
-    return [
-      allColumns.find(col => col.id === 'product_name')!.accessor,
-      ...allColumns
-        .filter(col => col.id !== 'product_name' && roleColumns.includes(col.id))
-        .map(col => col.accessor)
+    const roleColumns =
+      existedRoles?.roles?.find((role: any) => role.role_name === roleString)?.features || [];
+      console.log(roleColumns, "Role Columns based on roleString", roleString);
+    const allColumns = [
+      {
+        id: 'product_name',
+        accessor: columnHelper.accessor('product_name', {
+          header: 'Product',
+          cell: info => (
+            <div>
+              <p className='font-bold'>{info.getValue()}</p>
+              <p className="text-gray-500 text-sm">{info.row.original.product_id}</p>
+            </div>
+          ),
+        }),
+      },
+      {
+        id: 'match_score',
+        accessor: columnHelper.accessor('match_score', {
+          header: 'Match Score',
+          cell: info => {
+            const score = info.getValue() * 100;
+            const colorClass = score >= 80 ? 'text-green-600 dark:text-green-400 bg-[#4696601A] dark:bg-[#46966033]' :
+              score >= 60 ? 'text-yellow-600 dark:text-yellow-400 bg-[#C88A001A] dark:bg-[#C88A0033]' :
+                'text-red-600 dark:text-red-400 bg-[#C88A001A] dark:bg-[#C88A0033]';
+            return (
+              <div className='flex'>
+                <p className={`font-medium ${colorClass} py-1.5 px-2 rounded-xl`}>{score.toFixed(1)}%</p>
+              </div>
+            );
+          },
+        }),
+      },
+      {
+        id: 'risk_level',
+        accessor: columnHelper.accessor('risk_level', {
+          header: 'Risk Level',
+          cell: info => {
+            const value = info.getValue();
+            let colorClass = '';
+            if (value === 'High') {
+              colorClass = 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300';
+            } else if (value === 'Medium') {
+              colorClass = 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300';
+            } else if (value === 'Low') {
+              colorClass = 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300';
+            } else {
+              colorClass = 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300';
+            }
+            return (
+              <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${colorClass}`}>
+                {value}
+              </div>
+            );
+          },
+        }),
+      },
+      {
+        id: 'knowledge_min',
+        accessor: columnHelper.accessor('knowledge_min', {
+          header: 'Knowledge min',
+          cell: info => {
+            const value = info.getValue();
+            let colorClass = '';
+            let label = '';
+            if (value < 35) {
+              colorClass = 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300';
+              label = 'Low';
+            } else if (value < 50) {
+              colorClass = 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300';
+              label = 'Medium';
+            } else {
+              colorClass = 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300';
+              label = 'High';
+            }
+            return (
+              <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${colorClass}`}>
+                {value} <span className="ml-2">({label})</span>
+              </div>
+            );
+          },
+        }),
+      },
+      {
+        id: 'biases',
+        accessor: columnHelper.accessor('matched_biases', {
+          header: 'Bias Method',
+          cell: info => (
+            <div className="flex flex-wrap gap-1">
+              {info.getValue().map((bias, index) => (
+                <span
+                  key={index}
+                  className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300"
+                >
+                  {bias}
+                </span>
+              ))}
+            </div>
+          ),
+        }),
+      },
+      {
+        id: 'reason',
+        accessor: columnHelper.accessor('reason', {
+          header: 'Suitable Reason',
+          cell: info => (
+            <div className="text-sm text-gray-600 dark:text-gray-400 max-w-md">
+              {info.getValue()}
+            </div>
+          ),
+        }),
+      },
     ];
-  }, [columnHelper, roleColumns]);
+    return allColumns
+      .filter(col => col.id === 'product_name' || roleColumns.includes(col.id))
+      .map(col => col.accessor);
+  }, [existedRoles, roleString, columnHelper]);
+
 
   const table = useReactTable({
     data: customerData,
