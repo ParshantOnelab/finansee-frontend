@@ -10,7 +10,7 @@ import { ThemeProvider } from "../components/theme-provider";
 import ProtectedRoute from "../app/protectedRoutes";
 import Login from "../features/login";
 
-import { store,persistor } from "../store/store"; // Ensure store is initialized
+import { store, persistor } from "../store/store"; // Ensure store is initialized
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
@@ -19,7 +19,7 @@ const AppContent = () => {
   const isLoginPage = location.pathname === '/login';
 
   return (
-    <>
+    <div className="flex h-full flex-col">
       {!isLoginPage && <Header />}
 
       <Routes>
@@ -86,7 +86,7 @@ const AppContent = () => {
           }
         />
       </Routes>
-    </>
+    </ div>
 
   );
 };
@@ -99,9 +99,9 @@ function AppRoutes() {
     <ThemeProvider>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter>
-          <AppContent />
-        </BrowserRouter>
+          <BrowserRouter>
+            <AppContent />
+          </BrowserRouter>
         </PersistGate>
       </Provider>
     </ThemeProvider>

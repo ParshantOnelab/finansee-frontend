@@ -1,5 +1,4 @@
 import { useState, useMemo, useEffect } from 'react'
-import download from '../assets/download.svg'
 
 import {
   useReactTable,
@@ -208,12 +207,12 @@ function CustomerReport() {
                 <span className='font-bold px-2 py-1.5 text-[#C88900] dark:text-[#C88900] bg-[#C88A001A] dark:bg-[#C88A0033] rounded-lg text-sm whitespace-nowrap'>Medium</span>
               </div>
             </div>
-            <div>
+            {/* <div>
               <button className='flex items-center gap-2 px-4 py-2 bg-[#00B2B2] text-white rounded-xl hover:bg-blue-600 transition-colors duration-200'>
                 <img src={download} alt='download' />
                 <p>Export Reports</p>
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
 

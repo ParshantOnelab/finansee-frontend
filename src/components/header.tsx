@@ -3,7 +3,10 @@ import logo from '../assets/finanseeLogo.png'
 import { useNavigation } from '../hooks/useNavigation'
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from './theme-provider';
-import {useLogoutMutation} from "../store/api"
+import { useLogoutMutation } from "../store/api"
+import { useSelector, useDispatch } from 'react-redux';
+import type { RootState } from '../store/store';
+import { setUserRole } from '../store/reducers';
 
 function Header() {
     const { currentPage } = useNavigation();
@@ -14,6 +17,10 @@ function Header() {
 
     const [logout, { isLoading: isLoggingOut }] = useLogoutMutation();
 
+    const storedRole = useSelector((state: RootState) => state.userRole)
+    const isAdminLoggedIn = useSelector((state: RootState) => state.isAdminLoggedIn)
+
+    console.log(`User Role: ${storedRole}`); // Debugging line to check user role
 
     useEffect(() => {
         const checkMobile = () => {
@@ -41,14 +48,23 @@ function Header() {
     const navItems = [
         { name: 'Dashboard', path: 'dashboard' },
         { name: 'Customers', path: 'customers' },
-        { name: 'Recommendation', path: 'recommendations' },
-        { name: 'Reports', path: 'reports' },
-        { name: 'Analytics', path: 'analytics' },
+        // { name: 'Recommendation', path: 'recommendations' },
+        // { name: 'Reports', path: 'reports' },
+        // { name: 'Analytics', path: 'analytics' },
     ];
 
     const toggleTheme = () => {
         setTheme(theme === 'dark' ? 'light' : 'dark');
     };
+
+    const dispatch = useDispatch();
+    const roleOptions = [
+        'Relationship Manager',
+        'Head of Advisory',
+        'Compliance Officer',
+        'Portfolio Adviser',
+        'Admin',
+    ];
 
     if (isMobile) {
         return (
@@ -84,7 +100,29 @@ function Header() {
                             ))}
                         </div>
                     </div>
-                    <div className="flex-shrink-0 ml-auto">
+                    <div className="flex-shrink-0 ml-auto flex gap-4">
+                        <div>
+                            {isAdminLoggedIn === 'Yes' ? (
+                                <select
+                                    className="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded text-gray-700 dark:text-gray-200 font-medium focus:outline-none"
+                                    value={storedRole}
+                                    onChange={e => dispatch(setUserRole(e.target.value))}
+                                >
+                                    {roleOptions.map((role) => (
+                                        <option key={role} value={role}>
+                                            {role}
+                                        </option>
+                                    ))}
+                                </select>
+                            ) : (
+                                <button
+                                    className="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded text-gray-700 dark:text-gray-200 font-medium cursor-not-allowed opacity-70"
+                                    disabled
+                                >
+                                    {storedRole}
+                                </button>
+                            )}
+                        </div>
                         <div className='flex items-center gap-4'>
                             <div
                                 onClick={toggleTheme}

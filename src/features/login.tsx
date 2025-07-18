@@ -1,24 +1,28 @@
-import React, { useState } from 'react'
-import { useLoginMutation } from '../store/api'
+import React, { useEffect, useState } from 'react'
+import { useLoginMutation, useAuthenticateQuery } from '../store/api'
 import { useNavigate } from 'react-router-dom'
-import {setUserRole} from "../store/reducers"
+import { setIsAdminLoggedIn, setUserRole } from '../store/reducers'
 import { useDispatch } from 'react-redux'
-// import type { RootState } from '../store/store'
+import { motion } from 'framer-motion'
 
 function Login() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-
-    // const storedRole = useSelector((state:RootState)=>state.userRole)
-    // console.log(storedRole,'StoredRole')
-    // const userdata = useSelector((state: RootState)=>state.user)
     const [login] = useLoginMutation()
+
+    const { data: authData, isLoading: authLoading } = useAuthenticateQuery({
+        refetchOnMountOrArgChange: true,
+    })
+
+    useEffect(() => {
+        if (!authLoading && authData) {
+            navigate('/dashboard')
+        }
+    }, [authData, authLoading, navigate])
     const [formData, setFormData] = useState({
         email: '',
         password: ''
     })
-
-    
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
@@ -32,27 +36,45 @@ function Login() {
         e.preventDefault()
         try {
             const data = await login({ email: formData.email, password: formData.password }).unwrap()
-            // console.log(data,'data')
-            alert('Login successful! Welcome to the dashboard.')
-            navigate('/dashboard')
             dispatch(setUserRole(data?.user?.role))
-            // console.log(document.cookie, 'cookie')
-        } catch (error: any) {
-            alert(error?.data?.message || 'Login failed. Please try again.')
+            if (data?.user?.role === "Admin") dispatch(setIsAdminLoggedIn("Yes"))
+            navigate('/dashboard')
+            alert('Login successful! Welcome to the dashboard.')
+        } catch (error: unknown) {
+            type ErrorWithMessage = { data?: { message?: string } };
+            if (typeof error === 'object' && error && 'data' in error && typeof (error as ErrorWithMessage).data?.message === 'string') {
+                alert((error as ErrorWithMessage).data!.message!);
+            } else {
+                alert('Login failed. Please try again.');
+            }
             console.error('Login failed:', error)
         }
     }
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
-            <div className="w-full max-w-sm p-8 bg-white rounded-lg shadow-md">
-                <div className="mb-6 text-center">
+            <motion.div
+                className="w-full max-w-sm p-8 bg-white rounded-lg shadow-md"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+            >
+                <motion.div
+                    className="mb-6 text-center"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                >
                     <h1 className="text-3xl font-semibold text-gray-800">Login</h1>
                     <p className="text-sm text-gray-500 mt-1">Enter credentials to access the dashboard</p>
-                </div>
+                </motion.div>
 
                 <form onSubmit={handleSubmit} className="space-y-5">
-                    <div>
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.3 }}
+                    >
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                             Email
                         </label>
@@ -66,9 +88,13 @@ function Login() {
                             onChange={handleChange}
                             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm text-black"
                         />
-                    </div>
+                    </motion.div>
 
-                    <div>
+                    <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.4 }}
+                    >
                         <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
                             Password
                         </label>
@@ -82,30 +108,19 @@ function Login() {
                             onChange={handleChange}
                             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm text-black"
                         />
-                    </div>
+                    </motion.div>
 
-                    {/* <div className="flex items-center justify-between text-sm">
-                        <label className="flex items-center gap-2 text-gray-600">
-                            <input
-                                type="checkbox"
-                                name="remember-me"
-                                className="h-4 w-4 text-indigo-600 border-gray-300 rounded"
-                            />
-                            Remember me
-                        </label>
-                        <a href="#" className="text-indigo-600 hover:underline">
-                            Forgot password?
-                        </a>
-                    </div> */}
-
-                    <button
+                    <motion.button
                         type="submit"
-                        className="w-full py-2 px-4 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 transition duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        whileTap={{ scale: 0.95 }}
+                        whileHover={{ scale: 1.02 }}
+                        className="w-full py-2 px-4 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 transition duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+                        transition={{ type: 'spring', stiffness: 300 }}
                     >
                         Sign In
-                    </button>
+                    </motion.button>
                 </form>
-            </div>
+            </motion.div>
         </div>
     )
 }

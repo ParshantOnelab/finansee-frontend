@@ -1,6 +1,6 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { api } from "./api";
-import { customersReducer, userRoleReducer } from "./reducers";
+import { customersReducer, userRoleReducer,adminLoggedInReducer } from "./reducers";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage"; // defaults to localStorage
 import {
@@ -17,13 +17,14 @@ const rootReducer = combineReducers({
   [api.reducerPath]: api.reducer,
   [customersReducer.name]: customersReducer.reducer,
   [userRoleReducer.name]: userRoleReducer.reducer,
+  [adminLoggedInReducer.name]: adminLoggedInReducer.reducer,
 });
 
 // Step 2: Set up persist config
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: [customersReducer.name, userRoleReducer.name], // only persist these
+  whitelist: [customersReducer.name, userRoleReducer.name,adminLoggedInReducer.name], // only persist these
 };
 
 // Step 3: Wrap rootReducer with persistReducer
