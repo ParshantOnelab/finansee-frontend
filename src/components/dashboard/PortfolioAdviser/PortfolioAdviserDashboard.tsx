@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import PortfolioCardSection from './CardSection'
 import { useGetDataForDifferentRolesQuery } from '../../../store/api';
-import img from '../../../assets/advisory/clientS.svg'
+import img from '../../../assets/advisory/clients.svg'
 
 import Bar from './Bar'
 import PortfolioHeatMap from './PortfolioHeatMap'
