@@ -31,8 +31,6 @@ function CustomerReport() {
   const { data: existedRoles } = useGetRolesQuery({})
   const storedRole = useSelector((state: RootState) => state.userRole)
 
-  console.log(storedRole, "Stored Role from Redux", existedRoles, "Existed Roles from API");
-
   const roleString: string = storedRole;
 
   const [customerData, setCustomerData] = useState<CustomerData[]>([]);
@@ -41,9 +39,11 @@ function CustomerReport() {
     refetchOnMountOrArgChange: true
   })
 
+
   useEffect(() => {
     if (isSuccess && apiCustomerData?.results) {
       const data = apiCustomerData.results.flatMap((item: any) => item.recommendations || []);
+
       setCustomerData(data);
     }
   }, [apiCustomerData, isSuccess]);
@@ -53,7 +53,6 @@ function CustomerReport() {
   const columns = useMemo(() => {
     const roleColumns =
       existedRoles?.roles?.find((role: {role_name:string,features:string[]}) => role.role_name === roleString)?.features || [];
-      console.log(roleColumns, "Role Columns based on roleString", roleString);
     const allColumns = [
       {
         id: 'product_name',
@@ -164,9 +163,10 @@ function CustomerReport() {
         }),
       },
     ];
-    return allColumns
-      .filter(col => col.id === 'product_name' || roleColumns.includes(col.id))
-      .map(col => col.accessor);
+    return (roleColumns.length > 0
+      ? allColumns.filter(col => col.id === 'product_name' || roleColumns.includes(col.id))
+      : allColumns // show all columns if no role restrictions
+    ).map(col => col.accessor);
   }, [existedRoles, roleString, columnHelper]);
 
 

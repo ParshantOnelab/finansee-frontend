@@ -42,7 +42,6 @@ export const api = createApi({
         }),
         getDataForDifferentRoles: builder.query({
             query: (params = {}) => {
-                console.log('Query Params:', params);
                 const searchParams = new URLSearchParams();
                 if (params.entered_role) searchParams.append('entered_role', params.entered_role);
                 const queryString = searchParams.toString();

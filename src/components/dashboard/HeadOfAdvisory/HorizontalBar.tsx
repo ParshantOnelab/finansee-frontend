@@ -9,7 +9,6 @@ export default function HorizontalBars({
     yLabel: string
 }) {
 
-    console.log(dataset, "yLabel");
     // Step 1: Sort dataset (optional if you want gradient from lowest to highest)
     const sortedDataset = [...dataset].sort((a, b) => a.value - b.value);
 

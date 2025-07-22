@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import PortfolioCardSection from './CardSection'
 import { useGetDataForDifferentRolesQuery } from '../../../store/api';
-import img from '../../../assets/advisory/clients.svg'
+import img from '../../../assets/advisory/clientS.svg'
 
 import Bar from './Bar'
 import PortfolioHeatMap from './PortfolioHeatMap'
@@ -48,7 +48,6 @@ function PortfolioAdviserDashboard() {
     // });
 
     useEffect(() => {
-        console.log('Data fetched for Portfolio Adviser:', dataByRoles);
         const data = {
             kpis: {
                 mean_active_biases: dataByRoles?.kpis.mean_active_biases,

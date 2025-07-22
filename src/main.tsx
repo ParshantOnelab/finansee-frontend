@@ -4,8 +4,6 @@ import AppRoutes from './app/route'
 import "./Main.css"
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-
     {<AppRoutes />}
-    
   </StrictMode>
 );

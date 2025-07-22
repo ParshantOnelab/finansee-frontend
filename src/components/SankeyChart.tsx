@@ -13,8 +13,8 @@ interface SankeyApiData {
 
 const SankeyChart = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState(800);
-  const [height, setHeight] = useState(800);
+  const [width, setWidth] = useState(1400);
+  const [height, setHeight] = useState(1000);
   const { data, isLoading } = useSankeyChatDataQuery({});
   const { theme } = useTheme();
 

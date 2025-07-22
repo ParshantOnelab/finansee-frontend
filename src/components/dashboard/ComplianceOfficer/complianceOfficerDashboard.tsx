@@ -44,7 +44,6 @@ function ComplianceOfficerDashboard() {
         return <StatusMessage type="empty" message="No data available for Compliance Officer." />;
     }
 
-    console.log("Data for Compliance Officer Dashboard:", dataByRoles);
 
     const data1 = [
         {

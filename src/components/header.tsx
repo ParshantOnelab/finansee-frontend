@@ -20,7 +20,6 @@ function Header() {
     const storedRole = useSelector((state: RootState) => state.userRole)
     const isAdminLoggedIn = useSelector((state: RootState) => state.isAdminLoggedIn)
 
-    console.log(`User Role: ${storedRole}`); // Debugging line to check user role
 
     useEffect(() => {
         const checkMobile = () => {

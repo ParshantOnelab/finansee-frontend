@@ -36,15 +36,12 @@ function Dashboard() {
 
     const storedRole = useSelector((state: RootState) => state.userRole)
 
-
-
-
-
     const dispatch = useDispatch();
     const { data: apiCustomersData, isFetching, isError, isSuccess, error } = useGetCustomersQuery({ product_name: segmentOptions, bias: biasOptions }, {
         refetchOnMountOrArgChange: true,
         skip: storedRole !== 'Admin'
     });
+
     const { data: topInsights, isFetching: insightsFetching, isError: errorFetchingInsight, isSuccess: isFetchingInsightSuccess, error: insightError } = useGetTopInsightsQuery({
         refetchOnMountOrArgChange: true,
         skip: storedRole !== 'Admin'
@@ -177,10 +174,6 @@ function Dashboard() {
                                                         </div>
                                                     ) : isSuccess && apiCustomersData ? (
                                                         <div className='overflow-x-auto'>
-                                                            {/* <pre className="text-white">
-                                                    {JSON.stringify(customersData, null, 2)}
-                                                </pre> */}
-
                                                             <div className='flex items-center justify-between mb-4 px-2'>
                                                                 <div className="relative">
                                                                     <svg
