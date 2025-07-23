@@ -107,7 +107,7 @@ function PortfolioHeatMap({ data }: { data: HeatMapData }) {
         <div className="w-full  border rounded-xl overflow-hidden bg-white dark:bg-gray-800 p-3">
             <div className="flex items-center mb-4 gap-2">
                 <img src={img} alt={"Clients"} className='w-12 h-12' />
-                <h1 className='text-lg font-bold text-gray-800 dark:text-gray-200 '>Clients by Segment</h1>
+                <h1 className='text-lg font-bold text-gray-800 dark:text-gray-200 '>Bias Prevalence Heatmap</h1>
             </div>
             <div id="chart" className="dark:text-gray-200 h-full">
                 <ReactApexChart

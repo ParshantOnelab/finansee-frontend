@@ -105,7 +105,9 @@ function Header() {
                                 <select
                                     className="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded text-gray-700 dark:text-gray-200 font-medium focus:outline-none"
                                     value={storedRole}
-                                    onChange={e => dispatch(setUserRole(e.target.value))}
+                                    onChange={e => {
+                                        navigate("/dashboard")
+                                        dispatch(setUserRole(e.target.value))}}
                                 >
                                     {roleOptions.map((role) => (
                                         <option key={role} value={role}>

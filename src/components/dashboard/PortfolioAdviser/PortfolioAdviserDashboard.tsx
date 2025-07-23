@@ -71,12 +71,12 @@ function PortfolioAdviserDashboard() {
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 my-6'>
                     <div className="h-full">
                         {portfolioUserData?.clientsInSegment ? (
-                            <div className='w-full h-full border rounded-xl overflow-hidden bg-white dark:bg-gray-800 flex flex-col'>
-                            <div className="flex items-center mb-4 gap-2">
-                                <img src={img} alt={"Active Biases"} className='w-12 h-12' />
-                                <h1 className='text-lg font-bold text-gray-800 dark:text-gray-200 '>Clients by Segment</h1>
-                            </div>
-                            <Bar data={portfolioUserData.clientsInSegment} />
+                            <div className='w-full h-full border rounded-xl overflow-hidden bg-white dark:bg-gray-800 flex flex-col p-3'>
+                                <div className="flex items-center mb-4 gap-2">
+                                    <img src={img} alt={"Active Biases"} className='w-12 h-12' />
+                                    <h1 className='text-lg font-bold text-gray-800 dark:text-gray-200 '>Clients by Segment</h1>
+                                </div>
+                                <Bar data={portfolioUserData.clientsInSegment} />
                             </ div>
                         ) : (
                             <StatusMessage type="empty" message="No segment data available." />

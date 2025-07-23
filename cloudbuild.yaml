@@ -32,7 +32,7 @@ steps:
       [
         'run', 'deploy', 'finansee-frontend',
         '--image', 'gcr.io/$PROJECT_ID/finansee-frontend',
-        '--region', 'europe-southwest1',
+        '--region', 'europe-west1',
         '--platform', 'managed',
         '--allow-unauthenticated'
       ]
