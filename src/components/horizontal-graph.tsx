@@ -13,7 +13,7 @@ export default function HorizontalBars({
 }) {
   return (
     <BarChart
-      className='text-red-200'
+      className='text-red-200 '
       dataset={dataset}
       colors={colors}
       margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
@@ -40,6 +40,7 @@ export default function HorizontalBars({
             whiteSpace: 'normal',
             overflow: 'visible',
             textOverflow: 'initial',
+            fill: '#666', 
           },
           disableLine: true,
           disableTicks: true,

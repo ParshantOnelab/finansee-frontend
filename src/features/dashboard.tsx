@@ -201,49 +201,75 @@ function Dashboard() {
                                                                 </button>
                                                             </div>
                                                             {
-                                                                apiCustomersData?.matched_customers?.map((user: Customer, index: number) => index < 4 && (
-                                                                    <div key={index} className='mt-4 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg/10 hover:shadow-xl transition-shadow duration-200'>
-                                                                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4'>
-                                                                            {/* User Info */}
-                                                                            <div className='flex items-center gap-4 cursor-pointer' onClick={() => {
+                                                                apiCustomersData?.matched_customers && apiCustomersData.matched_customers.length > 0 ? (
+                                                                    apiCustomersData.matched_customers.map((user: Customer, index: number) =>
+                                                                        index < 4 && (
+                                                                            <div
+                                                                                key={index}
+                                                                                className="mt-4 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg/10 hover:shadow-xl transition-shadow duration-200"
+                                                                            >
+                                                                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+                                                                                    {/* User Info */}
+                                                                                    <div
+                                                                                        className="flex items-center gap-4 cursor-pointer"
+                                                                                        onClick={() => {
+                                                                                            navigate(`/dashboard/${user.customer_id}`);
+                                                                                        }}
+                                                                                    >
+                                                                                        <div className="flex flex-col">
+                                                                                            <p className="text-gray-500 dark:text-gray-400 text-sm">
+                                                                                                Customer ID : {user.customer_id}
+                                                                                            </p>
+                                                                                        </div>
+                                                                                    </div>
 
-                                                                                navigate(`/dashboard/${user.customer_id}`)
-                                                                            }}>
-                                                                                <div className='flex flex-col'>
-                                                                                    <p className='text-gray-500 dark:text-gray-400 text-sm'>Customer ID : {user.customer_id}</p>
+                                                                                    {/* Match Score */}
+                                                                                    <div className="flex items-center justify-center">
+                                                                                        <span className="font-medium dark:text-gray-300">
+                                                                                            {user.match_score}
+                                                                                        </span>
+                                                                                    </div>
+
+                                                                                    {/* Segment */}
+                                                                                    <div className="flex flex-wrap items-center justify-start gap-2">
+                                                                                        <span className="font-medium dark:text-gray-300 whitespace-nowrap">
+                                                                                            Segment :
+                                                                                        </span>
+                                                                                        <span className="text-[#5C00D3] bg-[#5C00D31A] dark:bg-[#5C00D333] whitespace-nowrap px-2 py-1.5 rounded-xl text-sm break-words min-w-0">
+                                                                                            {segmentOptions}
+                                                                                        </span>
+                                                                                    </div>
+
+                                                                                    {/* Risk Profile */}
+                                                                                    <div className="flex flex-wrap items-center justify-start gap-2">
+                                                                                        <span className="font-medium dark:text-gray-300 whitespace-nowrap">
+                                                                                            Risk Profile :
+                                                                                        </span>
+                                                                                        <span
+                                                                                            className={`px-2 py-1.5 rounded-xl text-sm break-words min-w-0 ${user.match_score > 0.5
+                                                                                                    ? 'bg-[#4696601A] dark:bg-[#46966033] text-[#469660] dark:text-[#469660]'
+                                                                                                    : 'text-[#C88900] dark:text-[#C88900] bg-[#C88A001A] dark:bg-[#C88A0033]'
+                                                                                                }`}
+                                                                                        >
+                                                                                            {user.match_score > 0.5 ? 'Medium' : 'Low'}
+                                                                                        </span>
+                                                                                    </div>
+
+                                                                                    {/* Matched Biases */}
+                                                                                    <div className="flex flex-wrap gap-2 items-center">
+                                                                                        <span className="font-medium text-sm text-[#2E2E2E] dark:text-gray-300 bg-[#F2F2F2] dark:bg-gray-700 px-2 py-1.5 rounded-xl whitespace-nowrap">
+                                                                                            {biasOptions}
+                                                                                        </span>
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
-
-                                                                            {/* Match Score */}
-                                                                            <div className='flex items-center justify-center'>
-                                                                                <span className='font-medium dark:text-gray-300'>{user.match_score}</span>
-                                                                            </div>
-
-                                                                            {/* Segment */}
-                                                                            <div className='flex flex-wrap items-center justify-start gap-2'>
-                                                                                <span className='font-medium dark:text-gray-300 whitespace-nowrap'>Segment :</span>
-                                                                                <span className='text-[#5C00D3] bg-[#5C00D31A] dark:bg-[#5C00D333] whitespace-nowrap px-2 py-1.5 rounded-xl text-sm break-words min-w-0'>
-                                                                                    {segmentOptions}
-                                                                                </span>
-                                                                            </div>
-
-                                                                            {/* Risk Profile */}
-                                                                            <div className='flex flex-wrap items-center justify-start gap-2'>
-                                                                                <span className='font-medium dark:text-gray-300 whitespace-nowrap'>Risk Profile :</span>
-                                                                                <span className={`px-2 py-1.5 rounded-xl text-sm break-words min-w-0 ${user.match_score > 0.5 ? 'bg-[#4696601A] dark:bg-[#46966033] text-[#469660] dark:text-[#469660]' : 'text-[#C88900] dark:text-[#C88900] bg-[#C88A001A] dark:bg-[#C88A0033]'}`}>
-                                                                                    {user.match_score > 0.5 ? "Medium" : "Low"}
-                                                                                </span>
-                                                                            </div>
-
-                                                                            {/* Matched Biases */}
-                                                                            <div className='flex flex-wrap gap-2 items-center'>
-                                                                                <span className='font-medium text-sm text-[#2E2E2E] dark:text-gray-300 bg-[#F2F2F2] dark:bg-gray-700 px-2 py-1.5 rounded-xl whitespace-nowrap'>
-                                                                                    {biasOptions}
-                                                                                </span>
-                                                                            </div>
-                                                                        </div>
+                                                                        )
+                                                                    )
+                                                                ) : (
+                                                                    <div className="text-center mt-8 text-gray-500 dark:text-gray-400 font-medium">
+                                                                        No data available
                                                                     </div>
-                                                                ))
+                                                                )
                                                             }
                                                         </div>
                                                     ) : (
