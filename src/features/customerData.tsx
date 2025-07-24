@@ -28,18 +28,27 @@ type CustomerData = {
 function CustomerReport() {
 
   const { uid } = useParams<{ uid: string }>()
-  const { data: existedRoles } = useGetRolesQuery({})
+  const { data: existedRoles, error:roleError } = useGetRolesQuery({})
   const storedRole = useSelector((state: RootState) => state.userRole)
+
+  const navigate = useNavigate()
+
+
 
   const roleString: string = storedRole;
 
   const [customerData, setCustomerData] = useState<CustomerData[]>([]);
 
-  const { data: apiCustomerData, isFetching, isError, isSuccess } = useGetCustomerByIdQuery(uid || '', {
+  const { data: apiCustomerData, isFetching, isError, isSuccess ,error:customerError} = useGetCustomerByIdQuery(uid || '', {
     refetchOnMountOrArgChange: true
   })
 
-
+  useEffect(() => {
+    if (roleError||customerError) {
+        console.error("API Error:", roleError,customerError);
+        navigate('/login');
+    }
+}, [roleError,customerError, navigate]);
   useEffect(() => {
     if (isSuccess && apiCustomerData?.results) {
       const data = apiCustomerData.results.flatMap((item: any) => item.recommendations || []);
@@ -175,7 +184,7 @@ function CustomerReport() {
     columns,
     getCoreRowModel: getCoreRowModel(),
   })
-  const navigate = useNavigate()
+
   return (
     <div className='py-6 bg-slate-100 dark:bg-gray-900 overflow-auto'>
 

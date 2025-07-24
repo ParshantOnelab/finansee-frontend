@@ -83,6 +83,7 @@ function ApexRingChart({ segments }: RingChartProps) {
 
 function CardSection({ data }: CardSectionProps) {
 
+  console.log(data,'data')
     // Map incoming data to cards
     const cardMeta = [
         { slog: "clients_in_book", title: "No. of Clients", img: Clients },

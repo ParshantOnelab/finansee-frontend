@@ -63,6 +63,13 @@ function Customers() {
   });
 
   useEffect(() => {
+    if (error) {
+        console.error("API Error:", error);
+        navigate('/login');
+    }
+}, [error, navigate]);
+  
+  useEffect(() => {
     if (isSuccess && apiCustomersData?.matched_customers) {
       setCustomersData(apiCustomersData.matched_customers);
     }

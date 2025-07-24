@@ -46,6 +46,17 @@ function Dashboard() {
         refetchOnMountOrArgChange: true,
         skip: storedRole !== 'Admin'
     });
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (error || insightError) {
+            console.error("API Error:", error, insightError);
+            navigate('/login');
+        }
+    }, [error, navigate,insightError]);
+
+    
     const [isPending, startTransition] = useTransition();
 
     useEffect(() => {
@@ -54,7 +65,7 @@ function Dashboard() {
         }
     }, [isSuccess, apiCustomersData, dispatch]);
 
-    const navigate = useNavigate();
+
 
     const Segments = [
         "Capital Protection ETF",

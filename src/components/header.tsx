@@ -34,6 +34,12 @@ function Header() {
 
 
     const handleLogout = async () => {
+        // Clear all cookies
+        document.cookie.split(';').forEach(cookie => {
+            const eqPos = cookie.indexOf('=');
+            const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+            document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
+        });
         try {
             await logout({}).unwrap();
             navigate('/login');
@@ -80,7 +86,7 @@ function Header() {
                     <div className="flex-shrink-0">
                         <div className='flex items-center gap-2'>
                             <img src={logo} alt="logo" className='w-10 h-10' />
-                            <p className='text-xl font-semibold whitespace-nowrap dark:text-white'>Finansee Dashboard</p>
+                            <p className='text-xl font-semibold whitespace-nowrap dark:text-white'>FinanSee Dashboard</p>
                         </div>
                     </div>
                     <div className="flex-grow flex justify-center min-w-[300px]">
@@ -107,7 +113,8 @@ function Header() {
                                     value={storedRole}
                                     onChange={e => {
                                         navigate("/dashboard")
-                                        dispatch(setUserRole(e.target.value))}}
+                                        dispatch(setUserRole(e.target.value))
+                                    }}
                                 >
                                     {roleOptions.map((role) => (
                                         <option key={role} value={role}>

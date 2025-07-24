@@ -15,6 +15,7 @@ function Login() {
     })
 
     useEffect(() => {
+        console.log(authData, authLoading, 'data from login')
         if (!authLoading && authData) {
             navigate('/dashboard')
         }

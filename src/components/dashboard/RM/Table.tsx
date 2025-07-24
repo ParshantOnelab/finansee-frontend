@@ -10,6 +10,7 @@ import type { Row } from '@tanstack/react-table';
 import HorizontalBars from './Horizontal-bar';
 import { useSelector } from 'react-redux';
 import type { RootState } from '../../../store/store';
+import { useNavigate } from 'react-router';
 
 interface Product {
     product_name: string;
@@ -76,6 +77,8 @@ function Table() {
         },
     ], [expandedRow]);
 
+    const navigate = useNavigate()
+
     const isAdminLoggedIn = useSelector((state: RootState) => state.isAdminLoggedIn);
     const storedRole = useSelector((state: RootState) => state.userRole);
 
@@ -87,6 +90,13 @@ function Table() {
     const { data: apiCustomersData, isFetching, isError, isSuccess, error } = useGetRMRoleDataQuery(queryParams, {
         refetchOnMountOrArgChange: true,
     });
+
+    useEffect(() => {
+        if (error) {
+            console.error("API Error:", error);
+            navigate('/login');
+        }
+    }, [error, navigate]);
 
     useEffect(() => {
         if (isSuccess && apiCustomersData?.charts?.knowledge_quiz_scores?.data) {

@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import { Sankey } from '@nivo/sankey';
 import { useSankeyChatDataQuery } from '../store/api';
 import { useTheme } from './theme-provider';
+import { useNavigate } from 'react-router';
 
 interface SankeyApiData {
   segment: string;
@@ -15,7 +16,17 @@ const SankeyChart = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(1400);
   const [height, setHeight] = useState(1000);
-  const { data, isLoading } = useSankeyChatDataQuery({});
+  const { data, isLoading, error } = useSankeyChatDataQuery({});
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+      if (error) {
+          console.error("API Error:", error);
+          navigate('/login');
+      }
+  }, [error, navigate]);
+  
   const { theme } = useTheme();
 
   // Set width and height after short delay on mount

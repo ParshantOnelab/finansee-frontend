@@ -1,10 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Dashboard from "../features/dashboard";
 import Analytics from "../features/analytics";
-import Reports from "../features/reports";
 import CustomerData from "../features/customerData";
 import Customers from "../features/customers";
-import Recommendations from "../features/recommendations";
 import Header from "../components/header";
 import { ThemeProvider } from "../components/theme-provider";
 import ProtectedRoute from "../app/protectedRoutes";
@@ -24,7 +22,7 @@ const AppContent = () => {
 
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        <Route path="/" element={<Navigate to="/login" replace />} />
         <Route
           path="/dashboard"
         >
@@ -66,22 +64,6 @@ const AppContent = () => {
           element={
             <ProtectedRoute>
               <Customers />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/recommendations"
-          element={
-            <ProtectedRoute>
-              <Recommendations />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/reports"
-          element={
-            <ProtectedRoute>
-              <Reports />
             </ProtectedRoute>
           }
         />
